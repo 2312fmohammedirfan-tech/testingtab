@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usability Testing Lab | FoodGo</title>
+    <link rel="stylesheet" href="testing-lab.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="lab-theme">
+    <div id="lab-container">
+        <!-- Sidebar Navigation -->
+        <aside id="lab-sidebar">
+            <div class="sidebar-header">
+                <div class="lab-logo">
+                    <i data-lucide="flask-conical"></i>
+                    <span>TestLab</span>
+                </div>
+            </div>
+            <nav id="step-nav">
+                <div class="nav-group">
+                    <span class="group-title">Preparation</span>
+                    <button class="nav-step active" data-step="1">
+                        <span class="step-num">1</span>
+                        <span class="step-name">Goal & Objectives</span>
+                    </button>
+                    <button class="nav-step" data-step="2">
+                        <span class="step-num">2</span>
+                        <span class="step-name">Target Users</span>
+                    </button>
+                    <button class="nav-step" data-step="3">
+                        <span class="step-num">3</span>
+                        <span class="step-name">Test Plan</span>
+                    </button>
+                    <button class="nav-step" data-step="4">
+                        <span class="step-num">4</span>
+                        <span class="step-name">Scenarios</span>
+                    </button>
+                </div>
+                <div class="nav-group">
+                    <span class="group-title">Execution</span>
+                    <button class="nav-step" data-step="8">
+                        <span class="step-num">8</span>
+                        <span class="step-name">Conduct Testing</span>
+                    </button>
+                    <button class="nav-step" data-step="9">
+                        <span class="step-num">9</span>
+                        <span class="step-name">Observations</span>
+                    </button>
+                </div>
+                <div class="nav-group">
+                    <span class="group-title">Analysis</span>
+                    <button class="nav-step" data-step="11">
+                        <span class="step-num">11</span>
+                        <span class="step-name">Results</span>
+                    </button>
+                    <button class="nav-step" data-step="14">
+                        <span class="step-num">14</span>
+                        <span class="step-name">Final Report</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main id="lab-main">
+            <header id="lab-header">
+                <div class="header-left">
+                    <h2 id="current-step-title">Step 1: Goal & Objectives</h2>
+                    <p id="current-step-desc">Define what you want to achieve with this testing session.</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-secondary" id="btn-save-draft"><i data-lucide="save"></i> Save Draft</button>
+                    <button class="btn btn-primary" id="btn-next-step">Next Step <i data-lucide="chevron-right"></i></button>
+                </div>
+            </header>
+
+            <div id="step-content">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </main>
+
+        <!-- Testing Interface (Overlays for Step 8 & 9) -->
+        <div id="testing-overlay" class="hidden">
+            <div class="testing-split">
+                <div class="prototype-pane">
+                    <div class="phone-mockup">
+                        <iframe src="index.html" id="prototype-iframe"></iframe>
+                    </div>
+                </div>
+                <div class="observation-pane">
+                    <div class="pane-header">
+                        <h3><i data-lucide="eye"></i> Observation Logger</h3>
+                        <div class="timer" id="session-timer">00:00</div>
+                    </div>
+                    <div class="logger-content">
+                        <div class="current-task-display">
+                            <p class="label">CURRENT TASK</p>
+                            <h4 id="active-task-name">Order a Margherita Pizza</h4>
+                        </div>
+                        <div class="observation-form">
+                            <textarea id="obs-note" placeholder="What did the user struggle with?"></textarea>
+                            <div class="form-row">
+                                <select id="obs-severity">
+                                    <option value="Low">Low Severity</option>
+                                    <option value="Medium">Medium Severity</option>
+                                    <option value="High">High Severity</option>
+                                </select>
+                                <button class="btn btn-primary" id="btn-add-obs">Log Observation</button>
+                            </div>
+                        </div>
+                        <div class="observation-list" id="logged-observations">
+                            <!-- Logged items appear here -->
+                        </div>
+                    </div>
+                    <div class="pane-footer">
+                        <button class="btn btn-success" id="btn-complete-task">Mark Task Success</button>
+                        <button class="btn btn-danger" id="btn-fail-task">Mark Task Failure</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="testing-lab.js"></script>
+</body>
+</html>
